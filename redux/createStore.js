@@ -1,7 +1,12 @@
 
 // https://blog.seosiwei.com/detail/13
 
-function createStore(reducer) {
+function createStore(reducer, enhancer) {
+  if (enhancer) {
+    return enhancer(createStore(reducer));
+  }
+
+
   // some error
   // let currentState = initState;
   let currentState;
